@@ -13,7 +13,7 @@ Variabel yang dianalisis (Frekuensi Bulanan, 2015-2025):
 *   `BI.Rate`: Suku Bunga Acuan Bank Indonesia
 
 ## Tinjauan Data Historis (2015-2025)
-![Dinamika Data Mentah](Plot%20Dinamika%20Makroekonomi%20&%20Lifting%20Cost_3.png)
+![Dinamika Data Mentah](Plot%20Dinamika%20Makroekonomi%20&%20Lifting%20Cost.png)
 *Grafik di atas menunjukkan pergerakan historis variabel makroekonomi utama beserta Lifting Cost sintetis sebelum dilakukan transformasi dan pemodelan VECM.*
 
 ## Metodologi
