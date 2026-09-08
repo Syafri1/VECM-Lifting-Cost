@@ -27,7 +27,7 @@ Pipeline analisis dalam *script* ini mencakup:
 ## Temuan Utama
 
 **1. Dinamika Guncangan (Impulse Response)**
-![Dasbor IRF](Macroeconomic%20Stress-Testing.png)
+![Dasbor IRF](Macroeconomic%20Stress-Testing%20(IRF).png)
 Berdasarkan visualisasi IRF, respons *Lifting Cost* menunjukkan pola struktural yang jelas terhadap masing-masing guncangan:
 *   **Kurs & Suku Bunga:** Depresiasi Rupiah dan pengetatan BI Rate berdampak signifikan menaikkan *lifting cost* pada 1-3 bulan pertama. Memasuki bulan ke-4, efeknya mulai tidak signifikan secara statistik, mengindikasikan adanya kemampuan sistem (atau manajemen) untuk melakukan penyesuaian (misal: negosiasi ulang kontrak) dalam jangka menengah.
 *   **Inflasi Material (IHPB):** Guncangan inflasi menggeser batas ekuilibrium biaya secara permanen ke atas. Ini merefleksikan karakter *sticky downward* pada harga material (seperti bahan kimia atau pipa) yang sulit turun kembali setelah naik.
