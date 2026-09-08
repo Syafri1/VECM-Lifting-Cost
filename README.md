@@ -12,6 +12,10 @@ Variabel yang dianalisis (Frekuensi Bulanan, 2015-2025):
 *   `IHPB`: Indeks Harga Perdagangan Besar (Proksi inflasi material B2B)
 *   `BI.Rate`: Suku Bunga Acuan Bank Indonesia
 
+## Tinjauan Data Historis (2015-2025)
+![Dinamika Data Mentah](Plot%20Dinamika%20Makroekonomi%20&%20Lifting%20Cost_3.png)
+*Grafik di atas menunjukkan pergerakan historis variabel makroekonomi utama beserta Lifting Cost sintetis sebelum dilakukan transformasi dan pemodelan VECM.*
+
 ## Metodologi
 Pipeline analisis dalam *script* ini mencakup:
 1. Penentuan Lag Optimum (AIC)
