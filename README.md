@@ -29,16 +29,16 @@ Pipeline analisis dalam *script* ini mencakup:
 **1. Dinamika Guncangan (Impulse Response)**
 ![Dasbor IRF](Macroeconomic%20Stress-Testing%20(IRF).png)
 Berdasarkan visualisasi IRF, respons *Lifting Cost* menunjukkan pola struktural yang jelas terhadap masing-masing guncangan:
-*   **Kurs & Suku Bunga:** Depresiasi Rupiah dan pengetatan BI Rate berdampak signifikan menaikkan *lifting cost* pada 1-3 bulan pertama. Memasuki bulan ke-4, efeknya mulai tidak signifikan secara statistik, mengindikasikan adanya kemampuan sistem (atau manajemen) untuk melakukan penyesuaian (misal: negosiasi ulang kontrak) dalam jangka menengah.
-*   **Inflasi Material (IHPB):** Guncangan inflasi menggeser batas ekuilibrium biaya secara permanen ke atas. Ini merefleksikan karakter *sticky downward* pada harga material (seperti bahan kimia atau pipa) yang sulit turun kembali setelah naik.
+*   **Kurs & Suku Bunga:** Depresiasi Rupiah dan pengetatan BI Rate berdampak signifikan menaikkan *lifting cost* pada 1-3 bulan pertama. Memasuki bulan ke-4, efeknya mulai tidak signifikan secara statistik, mengindikasikan adanya kemampuan sistem atau manajemerial untuk melakukan penyesuaian seperti melakukan negosiasi ulang kontrak dalam jangka menengah.
+*   **Inflasi Material (IHPB):** Guncangan inflasi menggeser batas ekuilibrium biaya secara permanen ke atas. Ini merefleksikan karakter *sticky downward* pada harga material yang sulit turun kembali setelah naik.
 *   **Siklus Harga Minyak (ICP):** Siklus *bullish* harga minyak memicu *oilfield service inflation*. Kenaikan harga minyak secara konsisten merambat pada naiknya tarif jasa penunjang operasional di lapangan.
 
 **2. Peta Risiko Jangka Panjang (FEVD)**
 ![Panel FEVD](Forecast%20Error%20Variance%20Decomposition%20(FEVD)%20-%20Lifting%20Cost.png)
-Dekomposisi varians menunjukkan bahwa dalam horizon 12 hingga 24 bulan, volatilitas *Lifting Cost* didominasi oleh tumpukan guncangan makroekonomi eksternal, yang perlahan menggerus porsi guncangan internal (*own-shock*).
+Dekomposisi varians menunjukkan bahwa dalam horizon 12 hingga 24 bulan, volatilitas *Lifting Cost* didominasi oleh guncangan makroekonomi eksternal, yang perlahan menggerus porsi guncangan internal (*own-shock*).
 
 ## Kesimpulan Bisnis
-Hasil model ini menyoroti perlunya instrumen *hedging* valas yang agresif khusus untuk tenor pendek (1-3 bulan) untuk meredam guncangan instan. Selain itu, strategi penguncian harga jangka panjang (*multi-years contract*) sangat disarankan untuk pengadaan material sebelum siklus harga minyak dunia mencapai puncaknya.
+Hasil model ini menyoroti perlunya instrumen *hedging* valas yang agresif khususnya pada tenor pendek (1-3 bulan) untuk meredam guncangan instan. Selain itu, strategi penguncian harga jangka panjang (*multi-years contract*) sangat disarankan untuk pengadaan material sebelum siklus harga minyak dunia mencapai puncaknya.
 
 ## Cara Penggunaan Script
 1. Buka `R Script Macroeconomic Stress-Testing & Lifting Cost Forecasting.R` di RStudio.
