@@ -83,7 +83,7 @@ Uji sekuensial memilih **r = 4 pada tingkat 5% dan 10%**, tetapi **r = 3 pada ti
 Ini menjelaskan mengapa respons kurs pada IRF bersifat sementara (kurs stasioner, sehingga guncangannya memudar), sedangkan respons IHPB dan BI Rate bertahan (keduanya memiliki akar unit).
 
 ## 4. Hasil dan Cara Membacanya
-Macroeconomic Stress-Testing (IRF).png
+
 ![Plot dinamika variabel](Plot%20Dinamika%20Makroekonomi%20%26%20Lifting%20Cost.png)
 
 ![IRF](Macroeconomic%20Stress-Testing%20(IRF).png)
