@@ -86,7 +86,7 @@ Ini menjelaskan mengapa respons kurs pada IRF bersifat sementara (kurs stasioner
 Macroeconomic Stress-Testing (IRF).png
 ![Plot dinamika variabel](VECM-Lifting-Cost/PlotDinamikaMakroekonomi&LiftingCost.png)
 
-![IRF](Macroeconomic_Stress-Testing_(IRF).png)
+![IRF](Macroeconomic%%Stress-Testing%%(IRF).png)
 
 Angka di bawah dibaca dari grafik.
 
