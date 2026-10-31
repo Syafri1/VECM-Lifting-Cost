@@ -83,8 +83,8 @@ Uji sekuensial memilih **r = 4 pada tingkat 5% dan 10%**, tetapi **r = 3 pada ti
 Ini menjelaskan mengapa respons kurs pada IRF bersifat sementara (kurs stasioner, sehingga guncangannya memudar), sedangkan respons IHPB dan BI Rate bertahan (keduanya memiliki akar unit).
 
 ## 4. Hasil dan Cara Membacanya
-
-![Plot dinamika variabel](VECM-Lifting-Cost/Plot_Dinamika_Makroekonomi_&_Lifting_Cost.png)
+Macroeconomic Stress-Testing (IRF).png
+![Plot dinamika variabel](VECM-Lifting-Cost/PlotDinamikaMakroekonomi&LiftingCost.png)
 
 ![IRF](Macroeconomic_Stress-Testing_(IRF).png)
 
@@ -97,7 +97,7 @@ Angka di bawah dibaca dari grafik.
 | **IHPB naik** | Respons menetap ±0,035 mulai bulan ke-3, signifikan sekitar bulan ke-3 hingga ke-20 | Sesuai rumus data. Sifat "permanen" berasal dari persistensi IHPB. Asimetri (*sticky downward*) tidak bisa disimpulkan dari model linear |
 | **ICP naik** | Respons naik hingga ±0,12 pada bulan ke-25, signifikan mulai sekitar bulan ke-5 | **Bukan efek struktural.** ICP tidak ada dalam rumus data. Respons ini kemungkinan besar muncul lewat korelasi ICP dengan variabel lain dan urutan Cholesky (ICP ditempatkan pertama) |
 
-![FEVD]('Forecast Error Variance Decomposition (FEVD) - Lifting Cost.png')
+![FEVD]
 
 **FEVD biaya produksi** (dibaca dari grafik): pada bulan pertama sebagian besar variasi berasal dari guncangan biaya itu sendiri (±62%) dan kurs (±34%). Pada horizon 24 bulan, **ICP tampak menjelaskan sekitar separuh variasi**. Karena ICP tidak ada dalam rumus data, angka ini adalah **artefak urutan Cholesky dan persistensi data**, bukan pengaruh nyata. Gunakan FEVD hanya setelah menguji sensitivitas terhadap urutan variabel.
 
