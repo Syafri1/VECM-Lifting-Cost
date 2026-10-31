@@ -20,10 +20,10 @@ Periode: bulanan, **Januari 2015 – Desember 2025** (132 observasi, tanpa nilai
 
 | Variabel | Deskripsi | Status | Sumber |
 |---|---|---|---|
-| `ICP` | Indonesian Crude Price (US$/barel) | Data riil | [ISI: ESDM] |
-| `Kurs` | Nilai tukar USD/IDR (Rp) | Data riil | [ISI: BI, rata-rata atau akhir bulan] |
-| `IHPB` | Indeks Harga Perdagangan Besar (proksi inflasi bahan) | Data riil | [ISI: BPS, tahun dasar] |
-| `BI Rate` | Suku bunga acuan BI (%) | Data riil | [ISI: BI] |
+| `ICP` | Indonesian Crude Price (US$/barel) | Data riil | investing.com |
+| `Kurs` | Nilai tukar USD/IDR (Rp) | Data riil | investing.com |
+| `IHPB` | Indeks Harga Perdagangan Besar (proksi inflasi bahan) | Data riil | BPS, Spliced (Basis 2023=100)  |
+| `BI Rate` | Suku bunga acuan BI (%) | Data riil | Bank Indonesia |
 | `Lifting_Cost_USD` | Biaya produksi per barel | **Sintetis** | Dibangkitkan skrip |
 
 **Rumus pembangkitan data sintetis** (`set.seed(42)`):
