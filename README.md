@@ -84,11 +84,11 @@ Ini menjelaskan mengapa respons kurs pada IRF bersifat sementara (kurs stasioner
 
 ## 4. Hasil dan Cara Membacanya
 
-![Plot dinamika variabel](outputs/plot_dinamika_makro.png)
+![Plot dinamika variabel](Plot Dinamika Makroekonomi & Lifting Cost.png)
 
-![IRF](outputs/irf_dashboard.png)
+![IRF](Macroeconomic Stress-Testing (IRF).png)
 
-Angka di bawah dibaca dari grafik. [ISI: ganti dengan nilai tepat dari objek `irf_*` dan `vd_lifting`.]
+Angka di bawah dibaca dari grafik.
 
 | Guncangan | Yang tampak pada IRF | Cara membacanya |
 |---|---|---|
@@ -97,7 +97,7 @@ Angka di bawah dibaca dari grafik. [ISI: ganti dengan nilai tepat dari objek `ir
 | **IHPB naik** | Respons menetap ±0,035 mulai bulan ke-3, signifikan sekitar bulan ke-3 hingga ke-20 | Sesuai rumus data. Sifat "permanen" berasal dari persistensi IHPB. Asimetri (*sticky downward*) tidak bisa disimpulkan dari model linear |
 | **ICP naik** | Respons naik hingga ±0,12 pada bulan ke-25, signifikan mulai sekitar bulan ke-5 | **Bukan efek struktural.** ICP tidak ada dalam rumus data. Respons ini kemungkinan besar muncul lewat korelasi ICP dengan variabel lain dan urutan Cholesky (ICP ditempatkan pertama) |
 
-![FEVD](outputs/fevd_dashboard.png)
+![FEVD](Forecast Error Variance Decomposition (FEVD) - Lifting Cost.png)
 
 **FEVD biaya produksi** (dibaca dari grafik): pada bulan pertama sebagian besar variasi berasal dari guncangan biaya itu sendiri (±62%) dan kurs (±34%). Pada horizon 24 bulan, **ICP tampak menjelaskan sekitar separuh variasi**. Karena ICP tidak ada dalam rumus data, angka ini adalah **artefak urutan Cholesky dan persistensi data**, bukan pengaruh nyata. Gunakan FEVD hanya setelah menguji sensitivitas terhadap urutan variabel.
 
