@@ -20,10 +20,10 @@ Periode: bulanan, **Januari 2015 – Desember 2025** (132 observasi, tanpa nilai
 
 | Variabel | Deskripsi | Status | Sumber |
 |---|---|---|---|
-| `ICP` | Indonesian Crude Price (US$/barel) | Data riil | Investing.com |
-| `Kurs` | Nilai tukar USD/IDR (Rp) | Data riil | Investing.com |
-| `IHPB` | Indeks Harga Perdagangan Besar (proksi inflasi bahan) | Data riil | Badan Pusat Statistik |
-| `BI Rate` | Suku bunga acuan BI (%) | Data riil | Bank Indonesia |
+| `ICP` | Indonesian Crude Price (US$/barel) | Data riil | [ISI: ESDM] |
+| `Kurs` | Nilai tukar USD/IDR (Rp) | Data riil | [ISI: BI, rata-rata atau akhir bulan] |
+| `IHPB` | Indeks Harga Perdagangan Besar (proksi inflasi bahan) | Data riil | [ISI: BPS, tahun dasar] |
+| `BI Rate` | Suku bunga acuan BI (%) | Data riil | [ISI: BI] |
 | `Lifting_Cost_USD` | Biaya produksi per barel | **Sintetis** | Dibangkitkan skrip |
 
 **Rumus pembangkitan data sintetis** (`set.seed(42)`):
@@ -45,7 +45,7 @@ Dua konsekuensi dari rumus ini yang menentukan cara membaca hasil:
 | Uji akar unit | ADF (`type = "trend"`, 1 lag) pada tiap variabel, hanya pada level. Hasil di bagian 3.1 |
 | Kointegrasi | Johansen *trace test*, `ecdet = "const"` (konstanta terbatas, tanpa tren), `K = 2`. Hasil di bagian 3.2 |
 | Rank kointegrasi | `r = 4` pada `vec2var`, berdasarkan uji sekuensial pada tingkat 5%. Dukungan untuk vektor ke-4 lemah (lihat 3.2) |
-| IRF | Ortogonal (Cholesky), 24 bulan, *bootstrap* 95% |
+| IRF | Ortogonal (Cholesky), 24 bulan (horizon 0–24), *bootstrap* 95% dengan 100 ulangan (bawaan paket `vars`) |
 | **Urutan Cholesky** | **ICP → Kurs → IHPB → BI Rate → Lifting Cost** |
 | FEVD | Horizon 24 bulan |
 
@@ -84,22 +84,32 @@ Ini menjelaskan mengapa respons kurs pada IRF bersifat sementara (kurs stasioner
 
 ## 4. Hasil dan Cara Membacanya
 
-![Plot dinamika variabel](Plot%20Dinamika%20Makroekonomi%20%26%20Lifting%20Cost.png)
+![Plot dinamika variabel](outputs/plot_dinamika_makro.png)
 
-![IRF](Macroeconomic%20Stress-Testing%20(IRF).png)
+![IRF](outputs/irf_dashboard.png)
 
-Angka di bawah dibaca dari grafik.
+Angka di bawah berasal dari keluaran R (objek `irf_*` dan `vd_lifting`). **Horizon 0 = saat guncangan terjadi.** Satuan IRF: US$ per barel untuk satu simpangan baku inovasi ortogonal.
 
-| Guncangan | Yang tampak pada IRF | Cara membacanya |
+| Guncangan | Hasil IRF (estimasi, interval bootstrap 95%) | Cara membacanya |
 |---|---|---|
-| **Kurs melemah** | Respons awal ±0,11 US$/barel, menurun cepat. Interval kepercayaan mencakup nol sekitar bulan ke-4 hingga ke-5 | Sesuai rumus data (koefisien kurs positif). Pudarnya efek mencerminkan **kembalinya kurs ke keseimbangan dalam model VAR** (konsisten dengan uji ADF: kurs stasioner di sekitar tren), bukan penyesuaian kontrak atau manajemen |
-| **BI Rate naik** | Respons positif ±0,03 naik ke ±0,07. **Batas bawah interval tetap di atas nol selama 25 bulan** | Efek signifikan sepanjang horizon, bukan hanya 1–3 bulan |
-| **IHPB naik** | Respons menetap ±0,035 mulai bulan ke-3, signifikan sekitar bulan ke-3 hingga ke-20 | Sesuai rumus data. Sifat "permanen" berasal dari persistensi IHPB. Asimetri (*sticky downward*) tidak bisa disimpulkan dari model linear |
-| **ICP naik** | Respons naik hingga ±0,12 pada bulan ke-25, signifikan mulai sekitar bulan ke-5 | **Bukan efek struktural.** ICP tidak ada dalam rumus data. Respons ini kemungkinan besar muncul lewat korelasi ICP dengan variabel lain dan urutan Cholesky (ICP ditempatkan pertama) |
+| **Kurs melemah** | 0,112 (h=0), 0,075 (h=1), 0,049 (h=2), 0,040 (h=3), lalu 0,012 (h=24). **Signifikan pada h=0–3**; mulai h=4 batas bawah di bawah nol | Sesuai rumus data (koefisien kurs positif). Pudarnya efek mencerminkan **kembalinya kurs ke keseimbangan dalam model VAR** (konsisten dengan ADF: kurs stasioner di sekitar tren), bukan penyesuaian kontrak atau manajemen |
+| **BI Rate naik** | 0,027 (h=0), 0,054 (h=1), 0,064 (h=12), 0,070 (h=24). **Signifikan di seluruh horizon 0–24** (batas bawah minimal 0,005 pada h=0, lalu di atas 0,012) | Efek terus menguat dan tidak memudar. Pernyataan bahwa efek BI Rate hanya 1–3 bulan **tidak didukung** hasil ini |
+| **IHPB naik** | 0,016 (h=0), 0,035 (h=2), puncak 0,0358 (h=8), 0,035 (h=24). **Signifikan pada h=2–13**; tidak signifikan pada h=0–1 dan h=14–24 | Sesuai rumus data. Estimasi titik bertahan, tetapi signifikansi statistik hilang setelah h=13 karena interval melebar. Asimetri (*sticky downward*) tidak bisa disimpulkan dari model linear |
+| **ICP naik** | −0,025 (h=0), 0,023 (h=2), 0,096 (h=12), 0,120 (h=24), masih naik. **Signifikan pada h=3–24** | **Bukan efek struktural.** ICP tidak ada dalam rumus data. Respons ini kemungkinan besar muncul lewat korelasi ICP dengan variabel lain dan urutan Cholesky (ICP ditempatkan pertama) |
 
-![FEVD](Forecast%20Error%20Variance%20Decomposition%20(FEVD)%20-%20Lifting%20Cost.png)
+![FEVD](outputs/fevd_dashboard.png)
 
-**FEVD biaya produksi** (dibaca dari grafik): pada bulan pertama sebagian besar variasi berasal dari guncangan biaya itu sendiri (±62%) dan kurs (±34%). Pada horizon 24 bulan, **ICP tampak menjelaskan sekitar separuh variasi**. Karena ICP tidak ada dalam rumus data, angka ini adalah **artefak urutan Cholesky dan persistensi data**, bukan pengaruh nyata. Gunakan FEVD hanya setelah menguji sensitivitas terhadap urutan variabel.
+**FEVD biaya produksi** (persen; periode 1 = saat guncangan, sama dengan h=0 pada IRF):
+
+| Periode | ICP | Kurs | IHPB | BI Rate | Biaya sendiri | Faktor terbesar |
+|---:|---:|---:|---:|---:|---:|---|
+| 1 | 1,7 | 34,5 | 0,7 | 2,1 | 61,1 | Biaya sendiri |
+| 6 | 10,7 | 30,7 | 6,9 | 21,0 | 30,6 | Kurs |
+| 12 | 31,1 | 17,6 | 8,7 | 26,0 | 16,7 | ICP |
+| 24 | **51,5** | 7,9 | 7,6 | 25,4 | 7,7 | ICP |
+
+Faktor terbesar berganti seiring horizon: biaya sendiri (periode 1–5), kurs (6–8), BI Rate (9–10), lalu ICP (11–24). Karena ICP tidak ada dalam rumus data, pangsa ICP sebesar 51,5% pada periode 24 adalah **artefak urutan Cholesky dan persistensi ICP** (ICP memiliki akar unit dan ditempatkan pertama), bukan pengaruh nyata. Pola yang sama muncul pada variabel lain: pada periode 24, ICP tampak menjelaskan 51,7% variasi BI Rate dan 42,9% variasi IHPB, angka yang secara ekonomi mencurigakan dan perlu diuji sensitivitasnya. Gunakan FEVD hanya setelah menguji urutan variabel.
+
 
 ## 5. Skenario Ilustratif
 
@@ -138,12 +148,16 @@ Dampak ini langsung dan bersifat tetap selama kurs, suku bunga, atau IHPB bertah
 ├── outputs/
 │   ├── plot_dinamika_makro.png
 │   ├── irf_dashboard.png
-│   └── fevd_dashboard.png
+│   ├── fevd_dashboard.png
+│   ├── Hasil_IRF_Lifting_Cost.csv          # IRF per horizon 0-24 beserta interval 95%
+│   ├── Hasil_FEVD_Lifting_Cost.csv         # FEVD biaya produksi (%)
+│   ├── Hasil_FEVD_Seluruh_Variabel.csv     # FEVD semua variabel (%)
+│   └── Faktor_Dominan_Lifting_Cost.csv     # faktor terbesar per periode
 ├── LICENSE
 └── README.md
 ```
 
-1. Buka `scripts/stress_test_vecm.R` di RStudio dan atur *working directory* ke folder utama.
+1. Buka `scripts/stress_test_vecm.R` di RStudio dan atur *working directory* ke folder utama. Pastikan skrip membaca `data/Data.xlsx` (`read_excel("data/Data.xlsx")`).
 2. Pasang paket: `readxl`, `urca`, `vars`, `tseries`, `ggplot2`, `patchwork`. [ISI: versi R]
 3. Jalankan skrip berurutan. Hasil IRF dan FEVD ditampilkan di panel Plot.
 
