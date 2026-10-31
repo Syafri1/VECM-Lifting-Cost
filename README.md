@@ -84,9 +84,9 @@ Ini menjelaskan mengapa respons kurs pada IRF bersifat sementara (kurs stasioner
 
 ## 4. Hasil dan Cara Membacanya
 
-![Plot dinamika variabel](Plot Dinamika Makroekonomi & Lifting Cost.png)
+![Plot dinamika variabel](Plot_Dinamika_Makroekonomi_&_Lifting_Cost.png)
 
-![IRF](Macroeconomic Stress-Testing (IRF).png)
+![IRF](Macroeconomic_Stress-Testing_(IRF).png)
 
 Angka di bawah dibaca dari grafik.
 
