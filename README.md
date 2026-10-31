@@ -158,7 +158,7 @@ Dampak ini langsung dan bersifat tetap selama kurs, suku bunga, atau IHPB bertah
 ```
 
 1. Buka `scripts/stress_test_vecm.R` di RStudio dan atur *working directory* ke folder utama. Pastikan skrip membaca `data/Data.xlsx` (`read_excel("data/Data.xlsx")`).
-2. Pasang paket: `readxl`, `urca`, `vars`, `tseries`, `ggplot2`, `patchwork`. [ISI: versi R]
+2. Pasang paket: `readxl`, `urca`, `vars`, `tseries`, `ggplot2`, `patchwork`. R 4.5.3
 3. Jalankan skrip berurutan. Hasil IRF dan FEVD ditampilkan di panel Plot.
 
 Catatan format data: kolom `ICP` di `Data.xlsx` tersimpan sebagai teks dengan koma desimal dan dibersihkan oleh skrip, sedangkan kolom lain memakai titik desimal.
