@@ -1,5 +1,8 @@
 # Macroeconomic Stress-Testing pada Lifting Cost Hulu Migas (VECM) — Studi Simulasi
 
+**Penulis:** Syafri Ismail
+**Kontak:** [LinkedIn](https://www.linkedin.com/in/syafri-ismail-29s/)
+
 Repositori ini mendemonstrasikan alur kerja ekonometrika *time-series* (uji akar unit, kointegrasi Johansen, VECM, IRF dengan *bootstrap*, dan FEVD) untuk menerjemahkan guncangan makroekonomi Indonesia menjadi dampak pada biaya produksi hulu migas.
 
 > **Penting: variabel biaya dalam proyek ini adalah data sintetis (simulasi), bukan data perusahaan.**
